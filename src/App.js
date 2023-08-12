@@ -20,6 +20,7 @@ const App = () => {
       ...events,
       [dateEvent]: events[dateEvent].filter(time => time.split(':')[0] !== timeEvent.split(':')[0])
     })
+    setSelectedElement({})
   }
 
   useEffect(() => {
