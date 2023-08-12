@@ -5,7 +5,6 @@ import { getHours, getWeeksDates, getHoursFromTime } from '../helpers/getHoursAn
 
 const TableWrapper = styled.div`
   display: grid;
-  align-items: center;
   grid-template-columns: 11% auto;
   grid-gap: 10px;
   overflow-y: auto;
@@ -13,23 +12,19 @@ const TableWrapper = styled.div`
 
 const HoursWrapper = styled.div`
   display: flex;
+  gap: 26.8px;
   justify-self: end;
   flex-direction: column;
-
-  &:first-child {
-    padding-top: 40px;
-  }
+  padding: 41px 0;
 `
 
 const Hours = styled.span`
-  padding-bottom: 28px;
   color: #999999;
   font-size: 18px;
 `
 
 const StyledTable = styled.table`
   padding: 25px 0;
-  width: auto;
   border-collapse: collapse;
 `
 
@@ -38,8 +33,8 @@ const StyledTableElement = styled.td.attrs(({ $key, $havingevents, $selected }) 
   havingevents: $havingevents,
   selected: $selected
 }))`
-  height: 3.16rem;
-
+  height: 50px;
+  
   border: #e6e6e6 solid 1px;
   padding: 3px;
   border-top: none;
@@ -78,7 +73,7 @@ const Table = ({ startDate, events, selectedElement, setSelectedElement }) => {
                   const currentDate = date.format('DD-MM-YYYY');
                   const allEvents = events[currentDate] || [];
                   const havingEvents = getHoursFromTime(allEvents);
-                  const isSelected = 
+                  const isSelected =
                     selectedElement.currentDate === currentDate &&
                     selectedElement.hour === hour &&
                     selectedElement.index === index
